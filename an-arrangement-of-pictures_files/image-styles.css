@@ -1,0 +1,115 @@
+body {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+img {
+  height: 300px;
+  display: inline-block;
+}
+
+#img-0 { 
+  
+  display: block;
+  margin: 0 auto;
+  border: 10px solid pink;
+  width: 300px;
+
+}
+
+#img-1 {
+
+  position: relative;
+  width: 300px;
+  border: 10px solid rgb(0, 208, 249);
+  top: -50px;
+  right: -600px
+
+}
+
+#img-2 {
+  position: relative;
+  width: 300px;
+  border: 10px solid rgb(0, 208, 249);
+  top: 150px;
+  right: -500px
+  
+}
+
+#img-3 {
+
+  position: relative;
+  width: 300px;
+  border: 10px solid rgb(0, 208, 249);
+  top: 350px;
+  right: -400px
+  
+}
+
+#img-4 {
+
+  position: relative;
+  width: 300px;
+  border: 10px solid rgb(0, 208, 249);
+  top: -300px;
+  right: 200px
+  
+}
+
+#img-5 {
+
+  position: relative;
+  width: 300px;
+  border: 10px solid rgb(0, 208, 249);
+  top: -100px;
+  right: 300px
+  
+}
+
+#img-6 {
+
+  position: relative;
+  width: 300px;
+  border: 10px solid rgb(0, 208, 249);
+  top: 100px;
+  right: 400px
+  
+}
+
+#img-7 {
+
+  position: relative;
+  width: 300px;
+  border: 10px solid rgb(0, 208, 249);
+  top: 10px;
+  right: -400px
+  
+}
+
+#img-8 {
+  
+  position: relative;
+  width: 300px;
+  border: 10px solid rgb(0, 208, 249);
+  top: 200px;
+  right: -300px
+  
+}
+
+#img-9 {
+
+  position: relative;
+  width: 300px;
+  border: 10px solid rgb(0, 208, 249);
+  top: 420px;
+  right: -150px
+  
+}
+
+#img-10 {
+  
+}
+
+#img-11 {
+  
+}

@@ -5,34 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <link rel="icon" href="#">
+    <link rel="stylesheet" href="collectionstyles.css">
     <style>
+        body {
+            margin: 0;
+            font-family: 'Noto Sans', 'Noto Sans CJK SC', 'Noto Sans KR', sans-serif;
+        }
+
+        .container {
+            display: flex; /* Use flexbox for layout */
+        }
+
         ul {
             font-style: italic;
             font-weight: 600;
             font-size: 16px;
-            font-family: 'Noto Sans', 'Noto Sans CJK SC', 'Noto Sans KR', sans-serif;
-            text-align:left;
+            text-align: left;
             text-transform: lowercase;
             line-height: 1.8;
             letter-spacing: 1px;
-            
+
             /* Box Model properties */
             padding: 50px;
             margin: 30px;
             border: 2px solid rgb(102, 0, 255);
             width: 350px;
+            box-sizing: border-box; /* Ensures the padding and border are included in the width */
+            transition: all 0.5s ease; /* Smooth transition for hover effect */
+        }
 
-            /* Ensures the padding and border are included in the width */
-            box-sizing: border-box;
+        /* Hover effect for the text box */
+        ul:hover {
+            width: 100vw; /* Expand to full viewport width */
+            position: absolute; /* Position absolute to cover the page */
+            top: 0; /* Align to top */
+            left: 0; /* Align to left */
+            z-index: 1; /* Ensure it stays above other elements */
         }
     </style>
 </head>
 <body>
-    <ul>
-        <li>Pie in English</li>
-        <li>派 (pài) in Mandarin</li>
-        <li>파이 (pai) in Korean</li>
-    </ul>
+    <h1 class="animated-header"> Purple Pie </h1>
+    <div class="container">
+        <ul>
+            <li> December 5th 2022 and January 7th 2022 and December 25th 2021 and November 25th 2021 and March 4th 2021 </li>
+            <br>
+            This is a okinawan sweet potato pie. Sometimes I make it with a graham cracker crust, other times with a flaky pie crust. Sometimes I add a little garnish on it, for Christmas or thanksgiving. Somehow this one always disappears faster than the orange sweet potato pie. </ul>
+        <img src="Purple pie.jpg" alt="Purple Pie" class="image">
+    </div>
+    <div class="navigation">
+        <a href="collection.html"> Previous </a> &nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="collectionitem3.html"> Next</a>
+    </div>
 </body>
 </html>
 

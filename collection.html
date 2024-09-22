@@ -5,34 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <link rel="icon" href="#">
+    <link rel="stylesheet" href="collectionstyles.css">
     <style>
+        body {
+            margin: 0;
+            font-family: 'Noto Sans', 'Noto Sans CJK SC', 'Noto Sans KR', sans-serif;
+        }
+
+        .container {
+            display: flex; /* Use flexbox for layout */
+        }
+
         ul {
             font-style: italic;
             font-weight: 600;
             font-size: 16px;
-            font-family: 'Noto Sans', 'Noto Sans CJK SC', 'Noto Sans KR', sans-serif;
-            text-align:left;
+            text-align: left;
             text-transform: lowercase;
             line-height: 1.8;
             letter-spacing: 1px;
-            
+
             /* Box Model properties */
             padding: 50px;
             margin: 30px;
             border: 2px solid rgb(102, 0, 255);
             width: 350px;
+            box-sizing: border-box; /* Ensures the padding and border are included in the width */
+            transition: all 0.5s ease; /* Smooth transition for hover effect */
+        }
 
-            /* Ensures the padding and border are included in the width */
-            box-sizing: border-box;
+        /* Hover effect for the text box */
+        ul:hover {
+            width: 100vw; /* Expand to full viewport width */
+            position: absolute; /* Position absolute to cover the page */
+            top: 0; /* Align to top */
+            left: 0; /* Align to left */
+            z-index: 1; /* Ensure it stays above other elements */
         }
     </style>
 </head>
 <body>
-    <ul>
-        <li>Hippo in English</li>
-        <li>河马 (hémǎ) in Mandarin</li>
-        <li>하마 (hama) in Korean</li>
-    </ul>
+    <h1 class="animated-header">Purple Cake</h1>
+    <div class="container">
+        <ul>
+            <li>April 8th, 2023. for my 20th birthday</li>
+            <br>
+            This is a taro-okinawan sweet potato infused into whipped cream, chiffon cake base. There’s no food coloring in this recipe— the vibrant color comes from the Okinawa sweet potato infusion. The recipe is scribbled down on a stained page in the back of our Vitamix manual, but she rarely needs it. We’ve made this cake at least one hundred times, and it is always the same: she bakes the cake, and I decorate it. It is a cake for every occasion— birthdays and baby showers and unexpected cake cravings and housewarmings and showing up to your neighbor’s house uninvited.
+        </ul>
+        <img src="Purple cake.jpg" alt="Purple Cake" class="image">
+    </div>
+
+    <div class="navigation">
+        <a href="collectionitem2.html"> Next 
+    </div>
+    
 </body>
 </html>
 
