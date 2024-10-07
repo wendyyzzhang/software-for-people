@@ -57,27 +57,27 @@ footer {
 
 
 img {
-    transition: transform 0.5s ease;  /* Smooth transition */
+    transition: transform 0.5s ease; 
 }
 
 img:hover {
-    transform: scale(1.1);  /* Scale the image when hovered */
+    transform: scale(1.1); 
 }
 
 
 .animated-header {
-    background-color: rgb(197, 173, 230);  /* Initial background color */
-    color: rgb(78, 0, 120);                 /* Text color */
-    padding: 20px;                /* Padding for spacing */
-    text-align: center;           /* Center the text */
-    transition: background-color 0.5s ease, transform 0.5s ease;  /* Animation for color and size */
-    font-size: 24px;              /* Initial font size */
+    background-color: rgb(197, 173, 230);  
+    color: rgb(78, 0, 120);                 
+    padding: 20px;               
+    text-align: center;           
+    transition: background-color 0.5s ease, transform 0.5s ease; 
+    font-size: 24px;             
 }
 
 .animated-header:hover {
-    background-color: purple;    /* Color changes to purple on hover */
-    transform: scale(1.2);       /* Grows to 120% of its size */
-    color: white;                 /* Change text color on hover */
+    background-color: purple;   
+    transform: scale(1.2);     
+    color: white;                
 }
 
 body {
@@ -86,7 +86,7 @@ body {
 }
 
 .container {
-    display: flex; /* Use flexbox for layout */
+    display: flex; 
 }
 
 ul {
@@ -101,20 +101,20 @@ ul {
     margin: 30px;
     border: 2px solid rgb(102, 0, 255);
     width: 350px;
-    box-sizing: border-box; /* Ensures the padding and border are included in the width */
-    transition: all 0.5s ease; /* Smooth transition for hover effect */
+    box-sizing: border-box; 
+    transition: all 0.5s ease; 
 }
 
 .image {
-    max-width: 50%;  /* Makes the image responsive */
-    height: auto;     /* Maintains the aspect ratio */
-    display: block;   /* Prevents extra space below the image */
+    max-width: 50%;  
+    height: auto;     
+    display: block;   
 }
 
 ul:hover {
-    width: 100vw; /* Expand to full viewport width */
-    position: absolute; /* Position absolute to cover the page */
-    top: 0; /* Align to top */
-    left: 0; /* Align to left */
-    z-index: 1; /* Ensure it stays above other elements */
+    width: 100vw; 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    z-index: 1; 
 }
