@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Enzo Mari redux</title>
+    <style>
+        body {
+            position: relative;
+        }
+
+        img {
+            max-width: 50%;
+            cursor: pointer;
+            position: absolute; /* Stacks the images on top of each other */
+            transition: transform 0.3s ease, filter 0.3s ease; /* Animation for hover */
+        }
+
+        img:hover {
+            filter: hue-rotate(90deg) brightness(1.2);
+            transform: rotate(10deg) scale(1.1); /* Adds hover effect */
+        }
+
+        div.image-container {
+            position: relative;
+        }
+
+        /* Position each image with random offsets */
+        .image-container div {
+            position: absolute;
+            top: calc(50vh - 50px); /* Center the images */
+            left: calc(50vw - 50px); /* Center the images */
+        }
+
+        /* New styles for added content */
+        div.new-credit {
+            margin-top: 20px;
+            font-size: 16px;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- New content replacing the original credit -->
+    <div class="new-credit">
+        This interactive site was created by Wendy Zhang for Alvin Ashiatey's ART 369: Software for People.
+    </div>
+
+    <script>
+        // define your "batch of images" in an array
+       var images = [
+                'images/horse_1.png',
+                'images/horse_2.jpg',
+                'images/horse_3.jpg',
+                'images/horse_4.jpg',
+                'images/horse_5.jpg',
+                'images/horse_6.jpg',
+                'images/horse_7.jpg',
+                'images/horse_8.jpg',
+            ]
+
+        // this function randomly picks an image from the batch
+        function random_image() {
+            return Math.floor(Math.random() * images.length);
+        }
+
+        // this function adds the randomly-selected image to the page
+        function add_image() {
+            // first you make a new img element
+            var new_image = document.createElement('img');
+            
+            // set the src of the new image to a randomly chosen image path
+            new_image.src = images[random_image()];
+
+            // randomly position each image to create the "pile" effect
+            var randomTop = Math.floor(Math.random() * (window.innerHeight - 200)) + "px";
+            var randomLeft = Math.floor(Math.random() * (window.innerWidth - 200)) + "px";
+
+            new_image.style.position = 'absolute';
+            new_image.style.top = randomTop;
+            new_image.style.left = randomLeft;
+
+            // add the new image to the document's body (so it's visible!)
+            document.body.append(new_image);
+
+            // set up the click event. When the image is clicked, it adds a new image
+            new_image.addEventListener('click', add_image);
+        }
+
+        // so that the first image appears when the page loads, run the function once.
+        add_image();
+    </script>
+</body>
+
+</html>
