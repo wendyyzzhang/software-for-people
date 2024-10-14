@@ -14,27 +14,25 @@
         img {
             max-width: 50%;
             cursor: pointer;
-            position: absolute; /* Stacks the images on top of each other */
-            transition: transform 0.3s ease, filter 0.3s ease; /* Animation for hover */
+            position: absolute; 
+            transition: transform 0.3s ease, filter 0.3s ease; 
         }
 
         img:hover {
             filter: hue-rotate(90deg) brightness(1.2);
-            transform: rotate(10deg) scale(1.1); /* Adds hover effect */
+            transform: rotate(10deg) scale(1.1); 
         }
 
         div.image-container {
             position: relative;
         }
 
-        /* Position each image with random offsets */
         .image-container div {
             position: absolute;
-            top: calc(50vh - 50px); /* Center the images */
-            left: calc(50vw - 50px); /* Center the images */
+            top: calc(50vh - 50px); 
+            left: calc(50vw - 50px);
         }
 
-        /* New styles for added content */
         div.new-credit {
             margin-top: 20px;
             font-size: 16px;
