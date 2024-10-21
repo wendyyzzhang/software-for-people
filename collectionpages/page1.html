@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marché, Valence d’Agen</title>
+    <link rel="stylesheet" href="../collection3styles.css"> 
+    <link rel="icon" href="collection photos/favicon.ico" type="image/x-icon">
+
+    <style>
+        
+        body {
+            margin: 0; 
+            padding: 0; 
+            font-family: 'IM Fell English', serif; 
+            background-color: #fffaf8;
+        }
+
+        .container {
+            display: flex; 
+            align-items: flex-start; 
+            padding: 20px; 
+        }
+
+        .image-wrapper {
+            position: relative;
+            width: 50%; 
+        }
+
+        .hover-image {
+            width: 100%; 
+            height: auto;
+            cursor: pointer; 
+            transition: opacity 0.5s ease; 
+        }
+
+        .video-wrapper {
+            position: absolute; 
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none; 
+        }
+
+        .video-wrapper video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+        }
+
+        .image-wrapper:hover .video-wrapper {
+            display: block; 
+        }
+
+        .image-wrapper:hover .hover-image {
+            opacity: 0; 
+        }
+
+        .text-container {
+            margin-top: 0; 
+            margin-left: 20px; 
+            text-align: justify;
+            color: rgb(100, 1, 1); 
+            font-size: 1.2vw; 
+            line-height: 1.2; 
+            max-height: 400px; 
+            padding: 0; 
+        }
+
+        h1, h2, h3 {
+            margin: 0; 
+            padding: 0; 
+        }
+
+        h1 {
+            line-height: 1.3; 
+        }
+    
+        h2 {
+            line-height: 1.5; 
+        }
+
+        ol {
+            padding-left: 20px; 
+            list-style: none; 
+            counter-reset: list-counter; 
+        }
+         
+        /* wanted to make the list seem invisible at first */
+
+        ol li {
+            opacity: 0; 
+            transition: opacity 0.5s ease; 
+            position: relative; 
+        }
+
+        ol li:hover {
+            opacity: 1; 
+        }
+         
+        /* this makes it so that only the hovered list item will be visible while others are hidden. */
+
+        ol li:hover ~ li {
+            opacity: 0; 
+        }
+
+        /* use the ::before pseudo-element to display the counter (the list number) before each list item */
+
+        ol li::before {
+            content: counter(list-counter) ". "; 
+            position: absolute; 
+            left: -30px; 
+            opacity: 0; 
+            transition: opacity 0.5s ease; 
+            counter-increment: list-counter; 
+        }
+
+        /*when hovered show the list item! */
+
+        ol li:hover::before {
+            opacity: 1; 
+        }
+
+        /*media queries cuz the text looks weird if horizontal all the time */ 
+
+        @media (max-width: 800px) {
+            .container {
+                flex-direction: column; 
+                align-items: center; 
+            }
+
+            .image-wrapper {
+                width: 100%; 
+                margin-bottom: 20px; 
+            }
+
+            .text-container {
+                margin-left: 0; 
+                font-size: 2vw; 
+            }
+
+            ol {
+                padding-left: 20px; 
+            }
+        }
+
+        @media (max-width: 480px) {
+            .text-container {
+                font-size: 2vw; 
+            }
+
+            ol {
+                padding-left: 10px; 
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="image-wrapper">
+            <a href="../collection3.html"> 
+                <div class="video-wrapper">
+                    <video src="../movies/movie1.mp4" autoplay loop muted></video> 
+                </div>
+                <img src="collection photos/image1.JPG" class="hover-image" alt="Watercolor Image" />
+            </a>
+        </div>
+
+        <div class="text-container">
+            <h1>Marché, Valence d’Agen</h1>
+            <h2> A Market in Southern France </h2>
+            <h3> July 22, 2024 </h3>
+            <p> Every Tuesday morning from 8am-12pm, Valence d’Agen boasts a market bustling with artisans, artists, butchers, and farmers. Most of the produce is sold in three columns underneath the pavilion at Pl. Sylvain Damon.
+            </p>
+            <p> “A map is in its essence and intent an arbitrary selection of information” (Rebecca Solnit, Infinite City), and I have chosen an arbitrary selection of the market. This map will never be replicated— the vendors, arrangements, locations, and produce varies with the harvest from week to week, season to season.  
+            </p>
+            <ol>
+                <li> I came to the market for strawberries today, but there are none. No raspberries, either. They were here last week, and the week before. The end of July marks the end of berry season— it’s the same at home, in Connecticut. I wonder if there will be blueberries soon, pears later, pumpkins after.  
+                </li>
+                <li> I mistake a leek for a scallion. The next day, I make “scallion” pancakes— the first recipe my mom taught me. <i> Make dough with a 2:1 flour to water ratio. Cover, let rest for 20 minutes. Then, roll out as thin as possible (with a glass cup, if your gîte doesn’t have a rolling pin), and evenly spread sesame oil (if your gîte only has olive oil, that’s also acceptable), salt, pepper, and scallions. Roll the dough up, coil into a snail, then roll out into a pancake. Pan fry. </i> </li>
+                <li> I’ve never seen ones so big before. The lady selling them told me to wait two days, but I couldn’t resist and devoured them before I got back to Auvillar.</li>
+                <li> Christophe Tessier, the head chef of Le Petit Palais, tells me that tomatoes are his favorite ingredient. He shows me the varieties of tomatoes in his pantry: shades of butternut yellow, apricot orange, strawberry red. I am surprised to learn that the reddest tomato is not the sweetest.</li>
+                <li> Great additions for summer rolls—after we found rice paper in Moissac (there is none in Auvillar), we often made them as an easy, refreshing lunch.
+                </li>
+                <li> Peaches, nectarines, and apricots are from Boudou, less than 14 kilometers away. There’s an implied trust that all the produce here is local, even if most is marked with <i> “origine: France.” </i> Except for this last column, which has produce labeled <i> “origine: Auvillar.” </i> I’ve only ever seen cornfields and sunflower fields in Auvillar.
+                </li>
+                <li> When nobody knows what they want for dinner, my mom makes savory pancakes which we call 面拖.  I knew I had to make them when I saw these. <i> Shred vegetables. Mix salt, pepper, eggs, flour until batter-like consistency. Pan fry. </i></li>
+                <li> <i> Origine: Egypt </i>
+                </li>
+                <li> <i> Mash 3 browned bananas, 1 stick browned butter. Mix in flour, creamy honey (preferably Maison Necty), sugar, yogurt, half-skimmed milk, baking powder, salt until good consistency. Swirl in a spoonful of nutella, top with a banana sliced lengthwise in half. Bake at 176 celcius. </i> I was surprised to find that banana bread in our gîte vanishes faster than at home.</li>
+            </ol>
+        </div>
+    </div>
+
+</body>
+</html>
+
+
