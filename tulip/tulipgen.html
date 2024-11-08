@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tulip Generation</title>
+    <style>
+        
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #fffefe; 
+        }
+
+
+        .image-container {
+            width: 300px;             
+            height: 300px;            
+            border: 30px solid;      
+            margin: 0 auto;          
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+    <script>
+        // generate a random color within a specified range
+        function getRandomColorInRange() {
+            const min = 200;  // Minimum RGB value for a lighter color
+            const max = 255;  // Maximum RGB value
+            const r = Math.floor(Math.random() * (max - min) + min);
+            const g = Math.floor(Math.random() * (max - min) + min);
+            const b = Math.floor(Math.random() * (max - min) + min);
+
+            return `rgb(${r}, ${g}, ${b})`;
+        }
+
+        // get a random border color every time you load a page!
+        window.onload = function() {
+            const container = document.querySelector('.image-container');
+            container.style.borderColor = getRandomColorInRange();
+        };
+    </script>
+</head>
+<body>
+    <div class="image-container">
+    </div>
+</body>
+</html>
