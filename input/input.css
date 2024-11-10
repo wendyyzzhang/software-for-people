@@ -1,0 +1,72 @@
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family:Verdana;
+  }
+  
+
+  body {
+    margin: 0;
+    height: 100vh; 
+    background: linear-gradient(45deg, #66bb6a, #43a047, #81c784, #388e3c);
+    background-size: 200% 200%; 
+    animation: gradientShift 15s ease infinite;
+  }
+  
+  @keyframes gradientShift {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
+  }
+  
+
+
+  .flower {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 20px 0;
+  }
+  
+  .petal {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: purple; 
+    border-radius: 50%;
+    transition: background-color 0.3s ease; 
+  }
+  
+  .petal1 {
+    top: 0;
+    left: 25px;
+  }
+  
+  .petal2 {
+    top: 25px;
+    left: 0;
+  }
+  
+  .petal3 {
+    top: 25px;
+    left: 50px;
+  }
+  
+  .petal4 {
+    top: 50px;
+    left: 25px;
+  }
+  
+  /* Flower Center */
+  .center {
+    position: absolute;
+    top: 35px;
+    left: 35px;
+    width: 30px;
+    height: 30px;
+    background-color: yellow;
+    border-radius: 50%;
+  }
+  
