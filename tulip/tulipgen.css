@@ -43,3 +43,141 @@ body {
     background-color: rgb(248, 216, 173);
     font-family: Strawberry;
 }
+
+
+/*below here is all stuff about the tulip  */
+
+.tulip {
+            position: relative;
+            width: 80px;
+            height: 100px;
+            transform: scale(0.3)
+        }
+
+        /* Tulip base (half an oval) */
+        .tulip .base {
+            width: 64.8px;
+            height: 30px;
+            background-color: #ff5c8d;
+            border-radius: 80px 80px 0 0; /* Top half rounded */
+            position: absolute;
+            bottom: 43.5px;
+            rotate: 180deg;
+            left: 7.6px
+        }
+
+        .tulip .filler {
+            width:62px;
+            height: 8px;
+            background:#ff5c8d;
+            position: absolute;
+            bottom: 70px;
+            left: 9px;
+        }
+        
+        .tulip .filler2 {
+            width:30px;
+            height: 8px;
+            background:#ff5c8d;
+            position: absolute;
+            bottom: 75px;
+            left: 25px;
+        }
+
+        /* Petals (rounded triangles) */
+        .tulip .petal {
+            width: 0;
+            height: 0;
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+            border-bottom: 50px solid #ff5c8d;
+            border-radius: 50% 50% 0 0; /* Rounded top */
+            position: absolute;
+            top: -30px;
+        }
+
+        /* Positioning petals */
+        .tulip .petal.left {
+            left: 0;
+            transform: rotate(-15deg);
+        }
+
+        .tulip .petal.center {
+            left: 10px;
+            transform: rotate(0deg);
+        }
+
+        .tulip .petal.right {
+            right: 0;
+            transform: rotate(15deg);
+        }
+
+        .leaf{
+	    width: 50px;
+	    height: 50px;
+	    border-radius: 0 100px;
+	    background-color: #6cd76c;
+	    transform: rotate(0deg);
+        position: absolute;
+        bottom: 0px;
+        left: -11px;
+        }
+
+        .leaf2{
+	    width: 50px;
+	    height: 50px;
+	    border-radius: 0 100px;
+	    background-color: #6cd76c;
+	    transform: rotate(90deg);
+        position: absolute;
+        bottom: 0px;
+        left: 41px;
+        }
+    
+        .tulip-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+
+
+/* Right side tulips */
+.tulip.right {
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg); /* Rotate for vertical alignment */
+
+}
+
+/* Bottom side tulips */
+.tulip.bottom {
+    bottom: 0;
+    left: 20px;
+    transform: translateX(20px);  /* Adjust the horizontal spacing */
+}
+
+/* Left side tulips */
+.tulip.left {
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg); /* Rotate for vertical alignment */
+}
+
+/* Top side tulips */
+.tulip.top {
+    top: 0;
+    left: 20px;
+    transform: translateX(20px);  /* Adjust the horizontal spacing */
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    height: 100%;
+
+}
