@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="contact form example">
+  <title>Favorite Fruit</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div>This website posts and displays data from this <a href="https://docs.google.com/spreadsheets/d/1JFfZTroBnun15PG3ziz4EKmVgT8HdbuW5nheD7_TZMo/edit?usp=sharing">Google Sheet</a>.</div>
+
+  <div><a href="index.html">View data here</a></div>
+
+  <h1>What's your favorite fruit?</h1>
+  
+  <!-- change the form action to your script url -->
+  <form class="gform pure-form pure-form-stacked" method="POST" data-email="example@email.net"
+  action="https://script.google.com/macros/s/AKfycbwTAXu5FLo9lm7MZXSeEfHIlv1AodT22zMhPDV9YwcuQYp3i-Gn8byfNnO0PdxMmjx7/exec">
+    
+
+    <div class="form-elements">
+      <fieldset>
+        <label for="name">Name: </label>
+        <input id="name" name="name" placeholder="name or nickname" />
+      </fieldset>
+
+      <fieldset>
+        <label for="message">Favorite Fruit: </label>
+        <textarea id="message" name="message" rows="10"
+        placeholder="Tell us your favorite fruit..."></textarea>
+      </fieldset>
+
+      <!--checkboxes-->
+      <fieldset class="pure-group">
+        <legend>Which of these do you like?</legend>
+        <input id="checkboxes--javascript" type="checkbox" name="checkboxes" value="banana" checked /> <label for="checkboxes--javascript">Banana</label>
+        <input id="checkboxes--java" type="checkbox" name="checkboxes" value="apple" /> <label for="checkboxes--java">Apple</label>
+        <input id="checkboxes--cplusplus" type="checkbox" name="checkboxes" value="mango" /> <label for="checkboxes--cplusplus">Mango</label>
+        <input id="checkboxes--python" type="checkbox" name="checkboxes" value="kiwi" checked /> <label for="checkboxes--python">Kiwi</label>
+        <input id="checkboxes--other" type="checkbox" name="checkboxes" value="not banana, apple, mango, nor kiwi" checked /> <label for="checkboxes--other">None</label>
+      </fieldset>
+
+
+      <fieldset class="honeypot-field">
+        <label for="honeypot">To help avoid spam, utilize a Honeypot technique with a hidden text field; must be empty to submit the form! Otherwise, we assume the user is a spam bot.</label>
+        <input id="honeypot" type="text" name="honeypot" value="" />
+      </fieldset>
+
+      <button class="button-success pure-button button-xlarge">
+        Submit form
+      </button>
+    </div>
+
+    <!-- Customise the Thankyou Message People See when they submit the form: -->
+    <div class="thankyou_message" style="display:none;">
+      <h2>Thank you for your message! Do you want to see the results? </h2>
+      <div><a href="index.html">See your results here.</a></div>
+    </div>
+
+  </form>
+
+  <!-- Submit the Form to Google Using "AJAX" -->
+  <script data-cfasync="false" src="submit-data.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+* {
+  font-family: Georgia;
+}
+
+fieldset {
+  border: 0px solid black;
+  margin: 0px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+label {
+  display: block;
+}
+
+.honeypot-field {
+  display: none;
+}
+
+.form-elements {
+  border: 0px solid black;
+}
+
+li {
+  margin-bottom: 1em;
+}
+
+.Timestamp {
+  display: none;
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  animation: gradientBackground 10s ease infinite;
+  background: linear-gradient(-45deg, #ff9a9e, #fff4f0, #ef7b7b, #fcb69f);
+  background-size: 400% 400%;
+}
+
+@keyframes gradientBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
