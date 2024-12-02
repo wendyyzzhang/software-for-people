@@ -67,45 +67,44 @@ body {
 /* Controls container for button and slider */
 .controls-wrapper {
     display: flex;
-    justify-content: center; /* Align items horizontally */
-    align-items: center;  /* Align button and slider vertically in the center */
-    gap: 10px; /* Add space between button and slider */
+    flex-direction: row; 
+    justify-content: center; 
+    align-items: center; 
+    gap: 10px;
+    position: relative; 
 }
 
-#save-button {
-    padding: 10px 15px;
-    font-size: 16px;
-    cursor: pointer;
-    border: 0px;
-    background-color: rgb(248, 216, 173);
-    font-family: Strawberry;
-    position: relative;
-    z-index: 100;
-    color: black; 
-    text-decoration: none;
-    border-radius: 5px; /* Round the edges */
+/* Container for the label and slider */
+.slider-container {
+    display: flex;
+    align-items: center; 
+    gap: 10px; 
+    background-color: #e7ddff; 
+    padding: 8px 12px; 
+    border-radius: 12px; 
 }
 
-/* Slider style */
+/* Slider style with pastel background */
 #tulip-count {
     -webkit-appearance: none;
     appearance: none;
-    width: 80px; /* Adjust the width of the slider */
+    width: 80px;
     height: 6px;
-    background: linear-gradient(90deg, #adf8b7 0%, #b987ff 100%);
-    border-radius: 5px;
+    background: linear-gradient(90deg, #ffffff 0%, #f6fbf8 100%); 
+    border-radius: 8px;
     outline: none;
+    position: relative; 
 }
 
 /* Style the slider thumb (handle) */
 #tulip-count::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 40px; /* Adjust the size of the thumb */
+    width: 40px; 
     height: 40px;
     background: url('tulip\ head.png') no-repeat center center;
-    background-size: contain; /* Ensure the image fits */
-    border: none; /* Remove default border */
+    background-size: contain; 
+    border: none; 
     outline: none;
 }
 
@@ -114,6 +113,6 @@ body {
     font-size: 16px;
     font-family: 'Strawberry';
     color: #333;
-    margin: 0 5px 0 0; /* Bring the text closer to the slider */
     text-align: center;
+    margin: 0;
 }

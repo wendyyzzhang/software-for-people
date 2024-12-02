@@ -14,10 +14,12 @@ function updateBorderColor() {
   const container = document.querySelector('.image-container');
   const button = document.getElementById('change-color-button');
   const saveButton = document.getElementById('save-button');
+  const sliderContainer = document.querySelector('.slider-container');
 
   container.style.borderColor = getRandomBrightPastelColor();
   button.style.backgroundColor = getRandomBrightPastelColor(); 
   saveButton.style.backgroundColor = getRandomBrightPastelColor();
+  sliderContainer.style.backgroundColor = getRandomBrightPastelColor();
 
 }
 
@@ -191,13 +193,13 @@ class TulipBorder {
       // Left edge tulips
       ...verticalPositions.map((y) => ({
         x: borderWidth - tulipOffset, // Left edge
-        y: y + 2*borderWidth,
+        y: y + 5*borderWidth,
         rotation: 90,
       })),
       // Right edge tulips
       ...verticalPositions.map((y) => ({
         x: width + borderWidth + tulipOffset, // Right edge
-        y: y + 2*borderWidth,
+        y: y + 5*borderWidth,
         rotation: 270,
       })),
     ];
