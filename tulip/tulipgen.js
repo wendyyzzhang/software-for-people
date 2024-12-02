@@ -9,9 +9,12 @@ function getRandomBrightPastelColor() {
   return `rgb(${r}, ${g}, ${b})`;
 }
 
-// Update the border color of the container
+// Update the border color of the container and the button background color
 function updateBorderColor() {
   const container = document.querySelector('.image-container');
+  const button = document.getElementById('change-color-button');
+
+  container.style.borderColor = getRandomBrightPastelColor();
   container.style.borderColor = getRandomBrightPastelColor();
 }
 
