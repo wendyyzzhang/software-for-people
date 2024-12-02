@@ -117,21 +117,37 @@ class TulipBorder {
     const { tulipOffset } = this.options;
 
     // Get container dimensions and border width
-    const containerRect = this.container.getBoundingClientRect(); // Accurate width/height
-    const borderWidth = parseFloat(getComputedStyle(this.container).borderWidth) || 0; // Get border width
-    const width = containerRect.width - borderWidth * 2; // Adjust for left/right borders
-    const height = containerRect.height - borderWidth * 2; // Adjust for top/bottom borders
+    const containerRect = this.container.getBoundingClientRect();
+    const borderWidth = parseFloat(getComputedStyle(this.container).borderWidth) || 0;
 
-    // Generate positions for tulips
-    const horizontalPositions = this.generateEdgePositions(true, width);
-    const verticalPositions = this.generateEdgePositions(false, height);
+    const width = containerRect.width; // Total width of the container (includes borders)
+    const height = containerRect.height; // Total height of the container (includes borders)
 
-    // Define edges for the tulips
+    // Adjusted positions for each edge
+    const horizontalPositions = this.generateEdgePositions(true, width - borderWidth * 2);
+    const verticalPositions = this.generateEdgePositions(false, height - borderWidth * 2);
+
     const edges = [
-        ...horizontalPositions.map((x) => ({ x: x + borderWidth, y: 0, rotation: 0 })), // Top edge
-        ...horizontalPositions.map((x) => ({ x: x + borderWidth, y: height, rotation: 180 })), // Bottom edge
-        ...verticalPositions.map((y) => ({ x: 0, y: y + borderWidth, rotation: 90 })), // Left edge
-        ...verticalPositions.map((y) => ({ x: width, y: y + borderWidth, rotation: 270 })), // Right edge
+        ...horizontalPositions.map((x) => ({
+            x: x + borderWidth, // Account for left border
+            y: borderWidth - tulipOffset + 110, // Top edge
+            rotation: 0,
+        })),
+        ...horizontalPositions.map((x) => ({
+            x: x + borderWidth, // Account for left border
+            y: height - borderWidth + tulipOffset +100, // Bottom edge
+            rotation: 0,
+        })),
+        ...verticalPositions.map((y) => ({
+            x: borderWidth - tulipOffset, // Left edge
+            y: y + borderWidth + 100, // Account for top border
+            rotation: 90,
+        })),
+        ...verticalPositions.map((y) => ({
+            x: width - borderWidth + tulipOffset + 10, // Right edge
+            y: y + borderWidth + 100, // Account for top border
+            rotation: 270,
+        })),
     ];
 
     // Add tulip images to the container
