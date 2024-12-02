@@ -15,7 +15,7 @@ function updateBorderColor() {
   const button = document.getElementById('change-color-button');
 
   container.style.borderColor = getRandomBrightPastelColor();
-  container.style.borderColor = getRandomBrightPastelColor();
+  button.style.backgroundColor = getRandomBrightPastelColor(); 
 }
 
 // Initialize TulipBorder, attach event listeners after DOM content loads
@@ -110,8 +110,12 @@ class TulipBorder {
   }
 
   render() {
+
+    this.destroy();
+
     const fragment = document.createDocumentFragment();
     const { tulipOffset } = this.options;
+    const containerRect = this.container.getBoundingClientRect();
     const width = this.container.offsetWidth;
     const height = this.container.offsetHeight;
 
