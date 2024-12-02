@@ -18,6 +18,7 @@ function updateBorderColor() {
   container.style.borderColor = getRandomBrightPastelColor();
   button.style.backgroundColor = getRandomBrightPastelColor(); 
   saveButton.style.backgroundColor = getRandomBrightPastelColor();
+
 }
 
 // Function to capture the content and save as an image
@@ -40,15 +41,21 @@ document.addEventListener("DOMContentLoaded", function () {
   const randomTulipBorder = new TulipBorder("container", {
     randomizeIndividually: true,
   });
-  randomTulipBorder.render();
+  randomTulipBorder.render(); // Initial rendering of tulips
 
   // Set initial border color
   updateBorderColor();
 
-  // Attach the click event listener to the button
+  // Attach the click event listener to the "Sprout" button
   const changeColorButton = document.getElementById("change-color-button");
   if (changeColorButton) {
-    changeColorButton.addEventListener("click", updateBorderColor);
+    changeColorButton.addEventListener("click", function() {
+      // Update border colors
+      updateBorderColor();
+
+      // Regenerate the tulips when the button is clicked
+      randomTulipBorder.render();  // Call render again to regenerate tulips
+    });
   }
 
   // Set up a slider to update the number of tulips on the border
@@ -61,12 +68,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-   // Attach the click event listener to the "Save" button
-   const saveButton = document.getElementById("save-button");
-   if (saveButton) {
-     saveButton.addEventListener("click", saveImage); // Capture and save the image when clicked
-   }
- });
+  // Attach the click event listener to the "Save" button
+  const saveButton = document.getElementById("save-button");
+  if (saveButton) {
+    saveButton.addEventListener("click", saveImage); // Capture and save the image when clicked
+  }
+});
+
 
 // TulipBorder class definition remains unchanged
 class TulipBorder {
@@ -143,7 +151,8 @@ class TulipBorder {
     const containerRect = this.container.getBoundingClientRect();
     const borderWidth = parseFloat(getComputedStyle(this.container).borderWidth) || 0;
   
-    const width = containerRect.width - borderWidth * 2;
+    // Adjust the width and height calculation by including the borderWidth
+    const width = containerRect.width - borderWidth * 2;  // Subtract double the borderWidth
     const height = containerRect.height - borderWidth * 2;
   
     // Recalculate positions
@@ -152,23 +161,23 @@ class TulipBorder {
   
     const edges = [
       ...horizontalPositions.map((x) => ({
-        x: x + borderWidth - 5, // Adjusted for left border
-        y: borderWidth - tulipOffset + 130, // Top edge
+        x: x + borderWidth, // Adjusted for left border
+        y: borderWidth - tulipOffset, // Top edge
         rotation: 0,
       })),
       ...horizontalPositions.map((x) => ({
-        x: x + borderWidth - 15,
-        y: height + borderWidth + tulipOffset +120, // Bottom edge
+        x: x + borderWidth,
+        y: height + borderWidth + tulipOffset, // Bottom edge
         rotation: 0,
       })),
       ...verticalPositions.map((y) => ({
         x: borderWidth - tulipOffset, // Left edge
-        y: y + borderWidth + 90,
+        y: y + borderWidth,
         rotation: 90,
       })),
       ...verticalPositions.map((y) => ({
         x: width + borderWidth + tulipOffset, // Right edge
-        y: y + borderWidth + 90,
+        y: y + borderWidth,
         rotation: 270,
       })),
     ];
@@ -180,6 +189,7 @@ class TulipBorder {
   
     this.container.appendChild(fragment);
   }
+  
   
   destroy() {
     const tulips = this.container.getElementsByClassName(this.options.className);
