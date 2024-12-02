@@ -39,6 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (tulipCount) {
     tulipCount.addEventListener("input", (e) => {
       const newCount = parseInt(e.target.value, 10);
+      console.log(`Slider value changed to: ${newCount}`);
       randomTulipBorder.updateTulipCount(newCount);
     });
   }
@@ -97,67 +98,66 @@ class TulipBorder {
   }
 
   generateEdgePositions(isHorizontal) {
-    const { tulipsPerEdge, tulipOffset } = this.options;
+    const { tulipsPerEdge } = this.options;
     const dimension = isHorizontal
       ? this.container.offsetWidth
       : this.container.offsetHeight;
     const step = dimension / tulipsPerEdge;
-
+  
+    // Center each tulip within its segment
     return Array.from(
       { length: tulipsPerEdge },
-      (_, i) => step * i + step / 2 - tulipOffset
+      (_, i) => step * i + step / 2 // Remove unnecessary offsets
     );
-  }
+  }  
 
   render() {
-    // Clear existing tulips
-    this.destroy();
-
+    this.destroy(); // Clear existing tulips
+  
     const fragment = document.createDocumentFragment();
     const { tulipOffset } = this.options;
-
-    // Get container dimensions and border width
+  
     const containerRect = this.container.getBoundingClientRect();
     const borderWidth = parseFloat(getComputedStyle(this.container).borderWidth) || 0;
-
-    const width = containerRect.width; // Total width of the container (includes borders)
-    const height = containerRect.height; // Total height of the container (includes borders)
-
-    // Adjusted positions for each edge
-    const horizontalPositions = this.generateEdgePositions(true, width - borderWidth * 2);
-    const verticalPositions = this.generateEdgePositions(false, height - borderWidth * 2);
-
+  
+    const width = containerRect.width - borderWidth * 2;
+    const height = containerRect.height - borderWidth * 2;
+  
+    // Recalculate positions
+    const horizontalPositions = this.generateEdgePositions(true);
+    const verticalPositions = this.generateEdgePositions(false);
+  
     const edges = [
-        ...horizontalPositions.map((x) => ({
-            x: x + borderWidth, // Account for left border
-            y: borderWidth - tulipOffset + 110, // Top edge
-            rotation: 0,
-        })),
-        ...horizontalPositions.map((x) => ({
-            x: x + borderWidth, // Account for left border
-            y: height - borderWidth + tulipOffset +100, // Bottom edge
-            rotation: 0,
-        })),
-        ...verticalPositions.map((y) => ({
-            x: borderWidth - tulipOffset, // Left edge
-            y: y + borderWidth + 100, // Account for top border
-            rotation: 90,
-        })),
-        ...verticalPositions.map((y) => ({
-            x: width - borderWidth + tulipOffset + 10, // Right edge
-            y: y + borderWidth + 100, // Account for top border
-            rotation: 270,
-        })),
+      ...horizontalPositions.map((x) => ({
+        x: x + borderWidth, // Adjusted for left border
+        y: borderWidth - tulipOffset, // Top edge
+        rotation: 0,
+      })),
+      ...horizontalPositions.map((x) => ({
+        x: x + borderWidth,
+        y: height + borderWidth + tulipOffset, // Bottom edge
+        rotation: 180,
+      })),
+      ...verticalPositions.map((y) => ({
+        x: borderWidth - tulipOffset, // Left edge
+        y: y + borderWidth,
+        rotation: 90,
+      })),
+      ...verticalPositions.map((y) => ({
+        x: width + borderWidth + tulipOffset, // Right edge
+        y: y + borderWidth,
+        rotation: 270,
+      })),
     ];
-
-    // Add tulip images to the container
+  
+    // Add tulip images
     edges.forEach(({ x, y, rotation }) => {
-        fragment.appendChild(this.createTulip(x, y, rotation));
+      fragment.appendChild(this.createTulip(x, y, rotation));
     });
-
+  
     this.container.appendChild(fragment);
-}
-
+  }
+  
   destroy() {
     const tulips = this.container.getElementsByClassName(this.options.className);
     while (tulips.length > 0) {
