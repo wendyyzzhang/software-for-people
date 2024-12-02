@@ -110,39 +110,37 @@ class TulipBorder {
   }
 
   render() {
-
+    // Clear existing tulips
     this.destroy();
 
     const fragment = document.createDocumentFragment();
     const { tulipOffset } = this.options;
-    const containerRect = this.container.getBoundingClientRect();
-    const width = this.container.offsetWidth;
-    const height = this.container.offsetHeight;
 
-    const horizontalPositions = this.generateEdgePositions(true);
-    const verticalPositions = this.generateEdgePositions(false);
+    // Get container dimensions and border width
+    const containerRect = this.container.getBoundingClientRect(); // Accurate width/height
+    const borderWidth = parseFloat(getComputedStyle(this.container).borderWidth) || 0; // Get border width
+    const width = containerRect.width - borderWidth * 2; // Adjust for left/right borders
+    const height = containerRect.height - borderWidth * 2; // Adjust for top/bottom borders
 
+    // Generate positions for tulips
+    const horizontalPositions = this.generateEdgePositions(true, width);
+    const verticalPositions = this.generateEdgePositions(false, height);
+
+    // Define edges for the tulips
     const edges = [
-      ...horizontalPositions.map((x) => ({ x, y: -tulipOffset + 50, rotation: 0 })),
-      ...horizontalPositions.map((x) => ({
-        x,
-        y: height - tulipOffset,
-        rotation: 180,
-      })),
-      ...verticalPositions.map((y) => ({ x: -tulipOffset + 10, y, rotation: 90 })),
-      ...verticalPositions.map((y) => ({
-        x: width - tulipOffset,
-        y,
-        rotation: 270,
-      })),
+        ...horizontalPositions.map((x) => ({ x: x + borderWidth, y: 0, rotation: 0 })), // Top edge
+        ...horizontalPositions.map((x) => ({ x: x + borderWidth, y: height, rotation: 180 })), // Bottom edge
+        ...verticalPositions.map((y) => ({ x: 0, y: y + borderWidth, rotation: 90 })), // Left edge
+        ...verticalPositions.map((y) => ({ x: width, y: y + borderWidth, rotation: 270 })), // Right edge
     ];
 
+    // Add tulip images to the container
     edges.forEach(({ x, y, rotation }) => {
-      fragment.appendChild(this.createTulip(x, y, rotation));
+        fragment.appendChild(this.createTulip(x, y, rotation));
     });
 
     this.container.appendChild(fragment);
-  }
+}
 
   destroy() {
     const tulips = this.container.getElementsByClassName(this.options.className);
