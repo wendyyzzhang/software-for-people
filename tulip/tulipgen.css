@@ -58,6 +58,7 @@ body {
     z-index: 100;
     color: black; 
     text-decoration: none;
+    border-radius: 8px;
 }
 
 /* Controls container for button and slider */
@@ -88,7 +89,7 @@ body {
     background: url('tulip\ head.png') no-repeat center center;
     background-size: contain; /* Ensure the image fits */
     border: none; /* Remove default border */
-    cursor: pointer;
+    outline: none;
 }
 
 /* Label style */
