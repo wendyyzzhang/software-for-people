@@ -22,17 +22,30 @@ function updateBorderColor() {
 }
 
 // Function to capture the content and save as an image
-function saveImage() {
+async function saveImage() {
   const container = document.querySelector('.image-container');
 
-  html2canvas(container, {
-    onrendered: function(canvas) {
+  // Log the container to ensure it exists and has visible content
+  console.log('Container:', container);
+
+  try {
+    // Capture the content of the container with html2canvas
+    const canvas = await html2canvas(container, { useCORS: true });
+
+    console.log(canvas); // Check the canvas object
+
+    // Ensure canvas is valid
+    if (canvas instanceof HTMLCanvasElement) {
       const link = document.createElement('a');
-      link.href = canvas.toDataURL('image/png');
-      link.download = 'tulip-border.png'; // Specify the file name for the image
+      link.href = canvas.toDataURL('image/png'); // Get the base64 data URL for the image
+      link.download = 'tulips_screenshot.png'; // Set the file name for the image
       link.click(); // Trigger the download
+    } else {
+      console.error("The rendered object is not a canvas.");
     }
-  });
+  } catch (error) {
+    console.error('Error capturing the image:', error);
+  }
 }
 
 
@@ -156,7 +169,7 @@ class TulipBorder {
     const height = containerRect.height - borderWidth * 2;
   
     // Adjust vertical positions by adding a custom vertical offset
-    const verticalOffset = 50;  // You can tweak this value to adjust the shift
+    const verticalOffset = borderWidth * 6;  // You can tweak this value to adjust the shift
   
     // Recalculate positions
     const horizontalPositions = this.generateEdgePositions(true);
@@ -178,13 +191,13 @@ class TulipBorder {
       // Left edge tulips
       ...verticalPositions.map((y) => ({
         x: borderWidth - tulipOffset, // Left edge
-        y: y + borderWidth + 10,
+        y: y + 2*borderWidth,
         rotation: 90,
       })),
       // Right edge tulips
       ...verticalPositions.map((y) => ({
         x: width + borderWidth + tulipOffset, // Right edge
-        y: y + borderWidth + 10,
+        y: y + 2*borderWidth,
         rotation: 270,
       })),
     ];
