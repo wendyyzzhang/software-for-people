@@ -1,21 +1,33 @@
-
-
-// Function to generate a random color within a specified range
+// Generate a random bright pastel color
 function getRandomBrightPastelColor() {
-    const min = 200;  // RGB values, brighter pastels
-    const max = 255;  // Maximum RGB value
-    const r = Math.floor(Math.random() * (max - min + 1)) + min;
-    const g = Math.floor(Math.random() * (max - min + 1)) + min;
-    const b = Math.floor(Math.random() * (max - min + 1)) + min;
+  const min = 200;  // Brighter pastels
+  const max = 255;
+  const r = Math.floor(Math.random() * (max - min + 1)) + min;
+  const g = Math.floor(Math.random() * (max - min + 1)) + min;
+  const b = Math.floor(Math.random() * (max - min + 1)) + min;
 
-    return `rgb(${r}, ${g}, ${b})`;
+  return `rgb(${r}, ${g}, ${b})`;
 }
 
-// update the border color 
+// Update the border color of the container
 function updateBorderColor() { 
-    const container = document.querySelector('.image-container');
-    container.style.borderColor = getRandomBrightPastelColor();
+  const container = document.querySelector('.image-container');
+  container.style.borderColor = getRandomBrightPastelColor();
 }
+
+// Initialize TulipBorder, attach event listeners after DOM content loads
+document.addEventListener("DOMContentLoaded", function () {
+  const randomTulipBorder = new TulipBorder("container", {
+      randomizeIndividually: true,
+  });
+  randomTulipBorder.render();
+
+  // initial border color!
+  updateBorderColor();
+
+  // for da button
+  document.getElementById("change-color-button").addEventListener("click", updateBorderColor);
+});
 
 
 class TulipBorder {
@@ -157,7 +169,4 @@ class TulipBorder {
     const newCount = parseInt(e.target.value, 10);
     randomTulipBorder.updateTulipCount(newCount);
   })
-
-// Set the initial random border color on page load
-window.onload = updateBorderColor;
 
