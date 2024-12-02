@@ -152,23 +152,23 @@ class TulipBorder {
   
     const edges = [
       ...horizontalPositions.map((x) => ({
-        x: x + borderWidth, // Adjusted for left border
-        y: borderWidth - tulipOffset, // Top edge
+        x: x + borderWidth - 5, // Adjusted for left border
+        y: borderWidth - tulipOffset + 130, // Top edge
         rotation: 0,
       })),
       ...horizontalPositions.map((x) => ({
-        x: x + borderWidth,
-        y: height + borderWidth + tulipOffset, // Bottom edge
-        rotation: 180,
+        x: x + borderWidth - 15,
+        y: height + borderWidth + tulipOffset +120, // Bottom edge
+        rotation: 0,
       })),
       ...verticalPositions.map((y) => ({
         x: borderWidth - tulipOffset, // Left edge
-        y: y + borderWidth,
+        y: y + borderWidth + 90,
         rotation: 90,
       })),
       ...verticalPositions.map((y) => ({
         x: width + borderWidth + tulipOffset, // Right edge
-        y: y + borderWidth,
+        y: y + borderWidth + 90,
         rotation: 270,
       })),
     ];
