@@ -23,13 +23,14 @@ function updateBorderColor() {
 // Function to capture the content and save as an image
 function saveImage() {
   const container = document.querySelector('.image-container');
-  
-  html2canvas(container).then(function(canvas) {
-    // Convert the canvas to an image
-    const link = document.createElement('a');
-    link.href = canvas.toDataURL('image/png');
-    link.download = 'tulip-border.png'; // Specify the file name for the image
-    link.click(); // Trigger the download
+
+  html2canvas(container, {
+    onrendered: function(canvas) {
+      const link = document.createElement('a');
+      link.href = canvas.toDataURL('image/png');
+      link.download = 'tulip-border.png'; // Specify the file name for the image
+      link.click(); // Trigger the download
+    }
   });
 }
 
@@ -59,7 +60,13 @@ document.addEventListener("DOMContentLoaded", function () {
       randomTulipBorder.updateTulipCount(newCount);
     });
   }
-});
+
+   // Attach the click event listener to the "Save" button
+   const saveButton = document.getElementById("save-button");
+   if (saveButton) {
+     saveButton.addEventListener("click", saveImage); // Capture and save the image when clicked
+   }
+ });
 
 // TulipBorder class definition remains unchanged
 class TulipBorder {
