@@ -13,10 +13,26 @@ function getRandomBrightPastelColor() {
 function updateBorderColor() {
   const container = document.querySelector('.image-container');
   const button = document.getElementById('change-color-button');
+  const saveButton = document.getElementById('save-button');
 
   container.style.borderColor = getRandomBrightPastelColor();
   button.style.backgroundColor = getRandomBrightPastelColor(); 
+  saveButton.style.backgroundColor = getRandomBrightPastelColor();
 }
+
+// Function to capture the content and save as an image
+function saveImage() {
+  const container = document.querySelector('.image-container');
+  
+  html2canvas(container).then(function(canvas) {
+    // Convert the canvas to an image
+    const link = document.createElement('a');
+    link.href = canvas.toDataURL('image/png');
+    link.download = 'tulip-border.png'; // Specify the file name for the image
+    link.click(); // Trigger the download
+  });
+}
+
 
 // Initialize TulipBorder, attach event listeners after DOM content loads
 document.addEventListener("DOMContentLoaded", function () {

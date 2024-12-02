@@ -48,7 +48,7 @@ body {
 
 /* Change color button */
 .reload-button {
-    padding: 10px 20px;
+    padding: 10px 15px;
     font-size: 16px;
     cursor: pointer;
     border: 0px;
@@ -69,11 +69,25 @@ body {
     gap: 10px; /* Add space between button and slider */
 }
 
+#save-button {
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border: 0px;
+    background-color: rgb(248, 216, 173);
+    font-family: Strawberry;
+    position: relative;
+    z-index: 100;
+    color: black; 
+    text-decoration: none;
+    border-radius: 5px; /* Round the edges */
+}
+
 /* Slider style */
 #tulip-count {
     -webkit-appearance: none;
     appearance: none;
-    width: 150px; /* Adjust the width of the slider */
+    width: 80px; /* Adjust the width of the slider */
     height: 6px;
     background: linear-gradient(90deg, #adf8b7 0%, #b987ff 100%);
     border-radius: 5px;
