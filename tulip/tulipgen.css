@@ -50,6 +50,13 @@ body {
     object-fit: cover;
 }
 
+@font-face {
+    font-family: 'Strawberry';
+    src: url('./Strawberry.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 /*change color button */
 .reload-button {
     padding: 10px 20px;
