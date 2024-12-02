@@ -155,29 +155,36 @@ class TulipBorder {
     const width = containerRect.width - borderWidth * 2;  // Subtract double the borderWidth
     const height = containerRect.height - borderWidth * 2;
   
+    // Adjust vertical positions by adding a custom vertical offset
+    const verticalOffset = 50;  // You can tweak this value to adjust the shift
+  
     // Recalculate positions
     const horizontalPositions = this.generateEdgePositions(true);
     const verticalPositions = this.generateEdgePositions(false);
   
     const edges = [
+      // Top edge tulips (shift them down)
       ...horizontalPositions.map((x) => ({
-        x: x + borderWidth, // Adjusted for left border
-        y: borderWidth - tulipOffset, // Top edge
+        x: x + borderWidth - 10, // Adjusted for left border
+        y: borderWidth + verticalOffset - tulipOffset, // Shifted down
         rotation: 0,
       })),
+      // Bottom edge tulips (shift them down)
       ...horizontalPositions.map((x) => ({
-        x: x + borderWidth,
-        y: height + borderWidth + tulipOffset, // Bottom edge
+        x: x + borderWidth - 10,
+        y: height + borderWidth + verticalOffset + tulipOffset, // Shifted down
         rotation: 0,
       })),
+      // Left edge tulips
       ...verticalPositions.map((y) => ({
         x: borderWidth - tulipOffset, // Left edge
-        y: y + borderWidth,
+        y: y + borderWidth + 10,
         rotation: 90,
       })),
+      // Right edge tulips
       ...verticalPositions.map((y) => ({
         x: width + borderWidth + tulipOffset, // Right edge
-        y: y + borderWidth,
+        y: y + borderWidth + 10,
         rotation: 270,
       })),
     ];
@@ -189,6 +196,7 @@ class TulipBorder {
   
     this.container.appendChild(fragment);
   }
+  
   
   
   destroy() {
