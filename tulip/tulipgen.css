@@ -27,7 +27,7 @@ body {
 
 .image-container {
     width: 100%;
-    height: 65vh;
+    height: 60vh;
     border: 20px solid;
     display: flex;
     justify-content: center;
