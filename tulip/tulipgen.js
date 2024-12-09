@@ -227,3 +227,38 @@ class TulipBorder {
     this.render();
   }
 }
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const saveButton = document.getElementById("save-button");
+  const contentWrapper = document.querySelector(".content-wrapper");
+
+  
+  const saveMessage = document.createElement("div");
+  saveMessage.textContent = "Take a screenshot!";
+  saveMessage.style.display = "none"; 
+  saveMessage.style.position = "absolute";
+  saveMessage.style.top = "60px";
+  saveMessage.style.right = "20px";
+  saveMessage.style.padding = "10px 15px";
+  saveMessage.style.backgroundColor = "rgb(248, 216, 173)";
+  saveMessage.style.borderRadius = "8px";
+  saveMessage.style.fontFamily = "Strawberry";
+  saveMessage.style.fontSize = "16px";
+  saveMessage.style.zIndex = "100";
+  saveMessage.style.color = "black";
+  saveMessage.style.boxShadow = "0px 4px 6px rgba(0, 0, 0, 0.1)";
+
+ 
+  contentWrapper.appendChild(saveMessage);
+
+ 
+  saveButton.addEventListener("click", () => {
+      if (saveMessage.style.display === "none") {
+          saveMessage.style.display = "block";
+      } else {
+          saveMessage.style.display = "none";
+      }
+  });
+});
+
