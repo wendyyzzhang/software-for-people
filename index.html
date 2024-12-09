@@ -11,18 +11,26 @@
         <link href="https://fonts.googleapis.com/css2?family=Barriecito&family=Playwrite+HR+Lijeva:wght@100..400&display=swap" rel="stylesheet">
         <style> 
             body {
-            margin: 0;
-            font-family: 'Comic Sans MS', sans-serif;
-            color: rgb(97, 14, 174);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: left;
-            background: linear-gradient(70deg, #f59aff, #c691d1, #fbc2eb, #a18cd1);
-            animation: gradientAnimation 5s ease infinite;
-            padding: 10vw
-            }
+        margin: 0;
+     font-family: 'Comic Sans MS', sans-serif;
+        color: rgb(97, 14, 174);
+        display: flex;
+        flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     text-align: left;
+     background: linear-gradient(70deg, #f59aff, #c691d1, #fbc2eb, #a18cd1);
+        background-size: 200% 200%; /* Added for gradient animation */
+     animation: gradientAnimation 5s ease infinite;
+     padding: 10vw;
+    }
+
+    @keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
 
             h1, h2, p {
             margin: 0;
@@ -62,11 +70,7 @@
             text-decoration: underline;
         }
 
-            @keyframes gradientAnimation {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
+          
         </style>
         <link rel="icon" href="purple heart.ico" type="image/x-icon"> 
     </head>
