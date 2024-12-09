@@ -18,8 +18,9 @@ body {
 
 .video-gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 0px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    column-gap: 10px; 
+    row-gap: 20px; 
     justify-items: center; 
 }
 
@@ -64,6 +65,7 @@ body {
     transition: color 0.5s ease; 
     overflow-wrap: break-word; 
     max-width: 100%; 
+    padding-top: 10pt;
 }
 
 .additional-text {
@@ -76,14 +78,18 @@ body {
     max-width: 100%; 
 }
 
+
 .text-container:hover .main-text {
     color: purple; 
 }
 
-.text-container:hover .additional-text {
+.text-container:hover .additional-text,
+.additional-text:hover {
     visibility: visible; 
     opacity: 1; 
+    transition: opacity 0.5s ease; 
 }
+
 
 /* Media queries */
 @media (min-width: 600px) {
